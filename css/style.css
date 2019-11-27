@@ -1,0 +1,41 @@
+*{
+
+}
+
+ul{
+	list-style: none;
+	padding: 0;
+	margin: 0; 
+	background-color: blue;
+}
+
+ul li{	
+	display: inline-block;
+}
+
+ul li:nth-child(5n){
+
+}
+
+ul li label{
+	cursor: pointer;
+}
+
+input[type=checkbox]{
+	display: none;
+}
+
+input[type=checkbox] + label{
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	background-color: red;
+	color: #FFF;
+	text-align: center; 
+	border-radius: 50%;
+	font-size: 1.4rem;
+}
+
+input[type=checkbox]:checked + label{
+	background-color: green;
+}
