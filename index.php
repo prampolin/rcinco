@@ -64,8 +64,6 @@
 					offCheckbox(checkbox, true);
 
 					var novaArr = checkeds.filter((e, i) => checkeds.indexOf(e) === i);
-
-					console.log(novaArr);
 				
 					var j;
 					for (j = 0; j < novaArr.length; j++){
