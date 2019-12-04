@@ -1,0 +1,24 @@
+ RewriteEngine On
+    #aqui criamos uma condição para que os arquivos sejam ignorados nas regras abaixo
+    RewriteCond %{REQUEST_FILENAME} !-f
+  #aqui criamos uma condição para que diretórios sejam ignorados nas regras abaixo
+    RewriteCond %{REQUEST_FILENAME} !-d
+    #aqui definimos onde começa a base das regras
+    #vamos supor que fosse um subdiretório, como por exemplo: /vs1/
+    RewriteBase /
+    #aqui ignoramos o uso de barra no final
+    RewriteRule ^(.+)\/?$ $1 [R,L]
+
+    #fix rules 
+    RewriteRule ^pagina-inicial$ index.php?acessando=home [QSA,L,NC]
+    RewriteRule ^institucional$ index.php?acessando=institucional [QSA,L,NC]
+    RewriteRule ^promocoes$ index.php?acessando=promocoes [QSA,L,NC]
+    RewriteRule ^lojas$ index.php?acessando=lojas [QSA,L,NC]
+    RewriteRule ^loja$ index.php?acessando=loja [QSA,L,NC]
+    RewriteRule ^contato$ index.php?acessando=contato [QSA,L,NC]
+    RewriteRule ^trabalhe$ index.php?acessando=trabalhe [QSA,L,NC]
+
+    #dinamic rules
+    RewriteRule ^msb\/([0-9A-z_-]+)$ msb/produtos.php?dep=$1 [QSA,L,NC]
+    RewriteRule ^msb\/([0-9A-z_-]+)\/([0-9A-z_-]+)$ msb/produtos.php?dep=$1&produto=$1 [QSA,L,NC]
+    RewriteRule ^msb\/([0-9A-z_-]+)\/([0-9A-z_-]+)\/([0-9A-z_-]+)$ msb/detalhes.php?produto=$1&dep=$2&sub=$3 [QSA,L,NC]

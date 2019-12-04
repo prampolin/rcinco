@@ -1,29 +1,28 @@
 *{
 
+	--loto: #930989;
 }
 
 body{
-	font-weight: 200;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
 }
 
 #card-lottery{
 	list-style: none;
 	padding: 0;
-	margin: 0; 
-	width: 50vh;
-	height: 50vh;
-	margin: 30px;
+	margin: 0px;
 	box-shadow: 2px 2px 8px #e7e7e7;
-	border-radius: 3rem;
+	border-radius: 2rem;
+}
+
+ul{
+	display: grid;	
 }
 
 ul li{	
-	display: inline-flex;
-	padding: 0.5vh; 
-}
-
-ul li:nth-child(5n){
-
+	grid-template-columns: auto auto auto auto auto;
+	padding: 10px;
 }
 
 ul li label{
@@ -35,20 +34,24 @@ input[type=checkbox]{
 }
 
 input[type=checkbox] + label{
-	width: 8.5vh;
-	height: 8.5vh;
+	width: 8vh;
+	height: 8vh;
 	line-height: 8vh;
-	/* background-color: #930989; */
-	border: 0.032rem solid #ddd;
-	color: #ddd;
+	border: 2px solid #ccc;
+	color: #ccc;
 	text-align: center; 
-	border-radius: 50%;
+	border-radius: 4rem;
 	font-size: 4vh;
-	letter-spacing: -0.1rem;
+	letter-spacing: -0.2rem;
 	padding: 0;
-	margin: 0; 
+	margin: 0.2vh; 
+}
+
+input[type=checkbox] + label:hover{
+	cursor: pointer;
 }
 
 input[type=checkbox]:checked + label{
-	background-color: #ddd;
+	background-color: #CCC;
+	color: #FFF;
 }

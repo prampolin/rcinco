@@ -12,19 +12,27 @@
 	<meta charset="UTF-8">
 	<title>Erre 5 acerte 14</title>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-md-4 col-12">
-				<ul id="card-lottery"></ul>
+			<div class="col-12 col-md-4">
+				<div id="card-lottery"></div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-4">
+				<div id="mostrar"></div>
 			</div>
 		</div>
 	</div>
+		
 	<script>
+
 
 		$(document).ready(function(){			
 
@@ -32,7 +40,6 @@
 
 			/* criacao do volante */
 			for(i = 1; i <= 25; i++){
-				let liEl = document.createElement('li');
 				let inputEl = document.createElement('input');
 				let labelEl = document.createElement('label');
 				
@@ -41,11 +48,9 @@
 				labelEl.setAttribute('for', i);
 				labelEl.appendChild(document.createTextNode(i));
 
-				liEl.appendChild(inputEl);
-				liEl.appendChild(labelEl);
-
 				let card = document.getElementById('card-lottery');
-				card.appendChild(liEl);
+				card.appendChild(inputEl);
+				card.appendChild(labelEl);
 			}
 			/* fim da criacao do volante */
 
@@ -55,28 +60,36 @@
 
 			$(checkbox).on('change', function(){
 
-				$(checkbox+":checked").each(function(){
-	   				checkeds.push($(this).val());
-				});
 			
 				if(amountSelect(checkbox+":checked", 5)){
+
+					$(checkbox+":checked").each(function(){
+		   				checkeds.push($(this).val());
+					});
 
 					offCheckbox(checkbox, true);
 
 					var novaArr = checkeds.filter((e, i) => checkeds.indexOf(e) === i);
 
-					console.log(novaArr);
-				
 					var j;
 					for (j = 0; j < novaArr.length; j++){
-	  					$("#" + novaArr[j]).attr('disabled', false);
+	  					$("#" + novaArr[j]).attr('disabled', false);	
+
 					}
+
+					var ar = restArr(novaArr, dozens);
+
+					console.log(resFive(ar));
+
 				}else{
 					offCheckbox(checkbox, false);
-					checkeds = []
+
 				}
+					
 			});	
 		});
+
+	
 
 			
 
